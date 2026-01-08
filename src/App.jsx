@@ -2,12 +2,11 @@ import { useState } from 'react'
 import './App.css'
 import Login from './components/Login'
 import Register from './components/Register'
-import Main from './components/Main'
 import Settings from './components/Settings'
 import Tasks from './components/Tasks'
 
 function App() {
-  const [ page, setPage ] = useState("main")
+  const [ page, setPage ] = useState("login")
   const [ login, setLogin] = useState("")
   const [ auth, setAuth ] = useState({ login: "", password: "" })
 
@@ -19,10 +18,9 @@ function App() {
   return (
     <>
     <div className='auth-navbar row'>
-      <div className='login-div' onClick={() => setPage("main")}>Strona główna</div>
+      {login && (<><div className='login-div' onClick={() => setPage("tasks")}>Zadania</div></>)}
       <div className='login-div' onClick={() => setPage("login")}>Logowanie</div>
       <div className='login-div' onClick={() => setPage("register")}>Rejestracja</div>
-      {login && (<><div className='login-div' onClick={() => setPage("tasks")}>Zadania</div></>)}
       <div className='custom-select'>
       <select className='login-div' value="" onChange={(e) => {
         if (e.target.value === "settings") setPage("settings");
