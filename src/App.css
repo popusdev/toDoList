@@ -104,11 +104,126 @@ body {
     flex-direction: column;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark {
+    background-color: #2D2A2A;
+    border: 4px white solid;
+}
+
+.light {
+    background-color: #C7C7C7;
+    border: 4px white solid;
+}
+
+.purple {
+    background-color: mediumpurple;
+    border: 4px white solid;
+}
+
+.red {
+    background-color: rgb(206, 0, 0);
+    border: 4px white solid;
+}
+
+.blue {
+    background-color: lightskyblue;
+    border: 4px white solid;
+}
+
+.green {
+    background-color: green;
+    border: 4px white solid;
+}
+
+.orange {
+    background-color: orange;
+    border: 4px white solid;
+}
+
+.brown {
+    background-color: rgb(95, 39, 39);
+    border: 4px white solid;
+}
+
+.yellow {
+    background-color: yellow;
+    border: 4px white solid;
+}
+
 .settings-block {
     width: 500px;
     height: 300px;
     background-color: #2D2A2A;
+    color: white;
     border-radius: 30px;
+    transition: all 0.5s ease;
+}
+
+.settings-block:hover {
+    -webkit-box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 1);
+}
+
+.settings-div {
+    font-size: 30px;
+    width: 500px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.themes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.theme-box {
+    width: 500px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.theme-button {
+    width: 40px;
+    height: 40px;
+}
+
+.deleteacc-box {
+    width: 500px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#deleteacc-button {
+    height: 35px;
+    width: 100px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+#deleteacc-button:hover {
+    cursor: pointer;
+    background-color: #a7a7a7;
+    font-size: 15px;
+    font-weight: 500;
+    border: 3px solid rgb(255, 0, 162);
 }
 
 #error {
