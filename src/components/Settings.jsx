@@ -1,7 +1,5 @@
-import { useState } from "react"
-
-function Settings() {
-    const [ theme, setTheme ] = useState("dark")
+function Settings({ theme, setTheme }) {
+    
 
     return (
     <>

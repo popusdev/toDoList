@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 function Register() {
-  const [form, setForm] = useState({ login: "", password: "" });
-  const [msg, setMsg] = useState({ text: "", type: "" });
-  const [loading, setLoading] = useState(false);
+  const [ form, setForm ] = useState({ login: "", password: "" });
+  const [ msg, setMsg ] = useState({ text: "", type: "" });
+  const [ loading, setLoading ] = useState(false);
 
   function handleChange(e) {
     const { name, value } = e.target;

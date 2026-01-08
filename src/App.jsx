@@ -9,6 +9,7 @@ function App() {
   const [ page, setPage ] = useState("login")
   const [ login, setLogin] = useState("")
   const [ auth, setAuth ] = useState({ login: "", password: "" })
+  const [ theme, setTheme ] = useState("dark")
 
   const handleLogout = () => {
     setLogin("")
@@ -47,7 +48,7 @@ function App() {
       setLogin(login);
       setAuth({ login, password });
     }} />}
-    {page === "settings" && <Settings/>}
+    {page === "settings" && <Settings theme={theme} setTheme={setTheme}/>}
     </>
   )
 }
