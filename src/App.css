@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-    background-color: #1f1f1f;
+    background-color: var(--bg);
     font-family: "Sour Gummy", sans-serif;
+    transition: background-color 0.7s ease;
 }
 
 .auth {
-    background-color: #2d2a2a;
+    background-color: var(--primary);
     width: 400px;
     height: 400px;
     flex-direction: column;
@@ -32,13 +33,14 @@ body {
 }
 
 #label-login, #label-pass {
-    color: white;
+    color: var(--color);
     position: relative;
     left: -90px;
     font-size: 30px;
 }
 
 #commit {
+    background-color: var(--button);
     font-family: "Sour Gummy", sans-serif;
     position: relative;
     top: 15px;
@@ -53,13 +55,14 @@ body {
 
 #commit:hover {
     cursor: pointer;
-    background-color: #a7a7a7;
+    background-color: var(--hover);
     font-size: 25px;
     font-weight: 500;
     border: 3px solid rgb(255, 0, 162);
 }
 
 #commit-register {
+    background-color: var(--button);
     font-family: "Sour Gummy", sans-serif;
     position: relative;
     top: 15px;
@@ -74,13 +77,14 @@ body {
 
 #commit-register:hover {
     cursor: pointer;
-    background-color: #a7a7a7;
+    background-color: var(--hover);
     font-size: 20px;
     font-weight: 500;
     border: 3px solid rgb(255, 0, 162);
 }
 
 #login, #password, #login-register, #password-register {
+    background-color: var(--button);
     font-family: "Sour Gummy", sans-serif;
     width: 350px;
     height: 70px;
@@ -92,7 +96,7 @@ body {
 
 #login:hover, #password:hover, #login-register:hover, #password-register:hover {
     border: 3px solid rgb(255, 0, 162);
-    background-color: #a7a7a7;
+    background-color: var(--hover);
 }
 
 .center {
@@ -111,56 +115,119 @@ body {
     align-items: center;
 }
 
+[data-theme="dark"] {
+    --bg: #1f1f1f;
+    --primary: #2D2A2A;
+    --color: white;
+    --button: white;
+    --hover: #a7a7a7;
+}
+
+[data-theme="light"] {
+    --bg: #DEDED1;
+    --primary: #B6AE9F;
+    --color: white;
+    --button: #C5C7BC;
+    --hover: #c4c4c4;
+}
+
+[data-theme="purple"] {
+    --bg: #92487A;
+    --primary: #540863;
+    --color: white;
+    --button: #FFD3D5;
+    --hover: #E49BA6
+}
+
+[data-theme="red"] {
+    --bg: #ce5454;
+    --primary: #A31D1D;
+    --color: white;
+    --button: #F8F2DE;
+    --hover: #ECDCBF;
+}
+
+[data-theme="blue"] {
+    --bg: #1C4D8D;
+    --primary: #0F2854;
+    --color: white;
+    --button: #BDE8F5;
+    --hover: #4988C4;
+}
+
+[data-theme="green"] {
+    --bg: #7b8d15;
+    --primary: #556B2F;
+    --color: white;
+    --button: #EFF5D2;
+    --hover: #C6D870;
+}
+
+[data-theme="orange"] {
+    --bg: #FFBB5C;
+    --primary: #FF9B50;
+    --color: white;
+    --button: #FFBB5C;
+    --hover: #FF9B50;
+}
+
+[data-theme="brown"] {
+    --bg: #A67B5B;
+    --primary: #6F4E37;
+    --color: white;
+    --button: #FED8B1;
+    --hover: #ECB176;
+}
+
+[data-theme="sea"] {
+    --bg: #84AE92;
+    --primary: #5A827E;
+    --color: white;
+    --button: #FAFFCA;
+    --hover: #B9D4AA
+}
+
 .dark {
     background-color: #2D2A2A;
-    border: 4px white solid;
 }
 
 .light {
-    background-color: #C7C7C7;
-    border: 4px white solid;
+    background-color: #B6AE9F;
 }
 
 .purple {
-    background-color: mediumpurple;
-    border: 4px white solid;
+    background-color: #92487A;
 }
 
 .red {
-    background-color: rgb(206, 0, 0);
-    border: 4px white solid;
+    background-color: #ce5454;
 }
 
 .blue {
-    background-color: lightskyblue;
-    border: 4px white solid;
+    background-color: #4988C4;
 }
 
 .green {
-    background-color: green;
-    border: 4px white solid;
+    background-color: #7b8d15;
 }
 
 .orange {
-    background-color: orange;
-    border: 4px white solid;
+    background-color: #FF9B50;
 }
 
 .brown {
-    background-color: rgb(95, 39, 39);
-    border: 4px white solid;
+    background-color: #6F4E37;
 }
 
-.yellow {
-    background-color: yellow;
-    border: 4px white solid;
+.sea {
+    background-color: #5A827E;
 }
 
 .settings-block {
     width: 500px;
     height: 300px;
-    background-color: #2D2A2A;
-    color: white;
+    background-color: var(--primary);
+    color: var(--color);
     border-radius: 30px;
     transition: all 0.5s ease;
 }
@@ -212,6 +279,7 @@ body {
 }
 
 #deleteacc-button {
+    background-color: var(--button);
     height: 35px;
     width: 100px;
     border-radius: 10px;
@@ -220,7 +288,7 @@ body {
 
 #deleteacc-button:hover {
     cursor: pointer;
-    background-color: #a7a7a7;
+    background-color: var(--hover);
     font-size: 15px;
     font-weight: 500;
     border: 3px solid rgb(255, 0, 162);
@@ -234,8 +302,8 @@ body {
 
 #text {
     font-family: "Sour Gummy", sans-serif;
-    color: white;
-    background-color: #2d2a2a;
+    color: var(--color);
+    background-color: var(--primary);
     width: 400px;
     height: 300px;
     display: flex;
@@ -264,8 +332,8 @@ body {
 }
 
 .auth-navbar {
-  background-color: #2d2a2a;
-  color: white;
+  background-color: var(--primary);
+  color: var(--color);
   width: 100%;
   height: 40px;
   gap: 70px;
@@ -274,16 +342,18 @@ body {
   align-items: center;
   flex-direction: row;
   border-radius: 10px;
+  transition: all 0.7s ease;
 }
 
 .auth-header {
-  color: white;
+  color: var(--color);
   font-size: 30px;
 }
 
 .custom-select {
 	position: relative;
     font-family: "Sour Gummy", sans-serif;
+    transition: all 0.7s ease;
 }
 
 .custom-select select {
@@ -293,16 +363,17 @@ body {
 	width: 100%;
 	font-size: 15px;
 	padding: 5px 30px 5px 0px;
-	background-color: #2D2A2A;
+	background-color: transparent;
 	border: 0px solid #C4D1EB;
 	border-radius: 5px;
-	color: #FFFFFF;
+	color: var(--color);
 	cursor: pointer;
 	outline: none;
+    transition: all 0.7s ease;
 }
 
 .custom-select select:focus {
-	background: #2D2A2A;
+	background: var(--primary);
 	border: 0px solid #C7C7C7;
 	border-radius: 5px;
 }
@@ -330,9 +401,9 @@ body {
 
 .addTask {
     display: flex;
-    background-color: #2d2a2a;
+    background-color: var(--primary);
     padding: 15px;
-    color: white;
+    color: var(--color);
     width: 400px;
     height: 100px;
     flex-direction: column;
@@ -362,6 +433,7 @@ body {
 }
 
 #taskName {
+    background-color: var(--button);
     font-family: 'Sour Gummy';
     width: 250px;
     height: 20px;
@@ -371,10 +443,11 @@ body {
 
 #taskName:hover, #taskDate:hover {
     border: 2px solid rgb(255, 0, 162);
-    background-color: #a7a7a7;
+    background-color: var(--hover);
 }
 
 #taskDate {
+    background-color: var(--button);
     font-family: 'Sour Gummy';
     height: 22px;
     border-radius: 10px;
@@ -383,6 +456,7 @@ body {
 }
 
 #addTaskButton {
+    background-color: var(--button);
     position: relative;
     font-family: 'Sour Gummy';
     width: 120px;
@@ -394,7 +468,7 @@ body {
 
 #addTaskButton:hover {
     cursor: pointer;
-    background-color: #a7a7a7;
+    background-color: var(--hover);
     font-size: 15px;
     font-weight: 500;
     border: 3px solid rgb(255, 0, 162);
@@ -405,18 +479,19 @@ body {
 }
 
 .task {
-    border: 5px solid #1f1f1f;
+    border: 5px solid var(--bg);
     display: flex;
     justify-content: center;
     align-items: center;
     width: 400px;
     padding: 15px;
-    background-color: #2d2a2a;
-    color: white;
+    background-color: var(--primary);
+    color: var(--color);
     border-radius: 100px;
     word-break: break-all;
 }
 
 #deleteTaskButton {
+    background-color: var(--button);
     margin-left: 10px;
 }

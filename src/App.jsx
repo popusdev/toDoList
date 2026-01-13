@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
 import Login from './components/Login'
@@ -9,11 +10,16 @@ function App() {
   const [ page, setPage ] = useState("login")
   const [ login, setLogin] = useState("")
   const [ auth, setAuth ] = useState({ login: "", password: "" })
-  const [ theme, setTheme ] = useState("dark")
+  const [ theme, setTheme ] = useState("light")
+
+  useEffect(() => {
+        document.body.setAttribute("data-theme", theme);
+    }, [theme])
 
   const handleLogout = () => {
     setLogin("")
-    setPage("main")
+    setPage("login")
+    setTheme("dark")
   }
 
   return (

@@ -1,6 +1,5 @@
-function Settings({ theme, setTheme }) {
-    
 
+function Settings({ theme, setTheme }) {
     return (
     <>
         <div className="center">
@@ -20,7 +19,7 @@ function Settings({ theme, setTheme }) {
                             <button className="theme-button green" onClick={() => setTheme("green")}></button>
                             <button className="theme-button orange" onClick={() => setTheme("orange")}></button>
                             <button className="theme-button brown" onClick={() => setTheme("brown")}></button>
-                            <button className="theme-button yellow" onClick={() => setTheme("yellow")}></button>
+                            <button className="theme-button sea" onClick={() => setTheme("sea")}></button>
                         </div>
                     </div>
                     <div className="deleteacc-box">
