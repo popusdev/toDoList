@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
+
 function Tasks({ auth }) {
-    const [ newTask, setNewTask ] = useState({ name: "", date: ""})
+    const [ newTask, setNewTask ] = useState({ name: "", date: "", time: "12:00"})
     const [ tasks, setTasks ] = useState([])
     const [ msg, setMsg ] = useState({ text: "", type: "" })
     const [ loading, setLoading ] = useState(false)
+    const [ currDate, setCurrDate ] = useState(new Date())
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrDate(new Date())
+        }, 1000)
+        return () => clearInterval(timer)
+    }, [])
 
     useEffect(() => {
         if (auth.login && auth.password) {
@@ -55,12 +64,13 @@ function Tasks({ auth }) {
         }
 
         setMsg({ text: `Dodano zadanie "${payload.name}"`, type: "success" });
-        setNewTask({ name: "", date: ""})
+        setNewTask({ name: "", date: "", time: "12:00"})
     } catch(err) {
         setMsg({ text: "Bład. Spróbuj ponownie", type: "error"})
     } finally {
         setLoading(false)
     }
+
     await loadTasks()
     }
 
@@ -111,14 +121,37 @@ function Tasks({ auth }) {
             setMsg({text: "Błąd połączenia z API", type: "error"})
             }
         }
+    
+    function getTimeLeft(task) {
+        if (!task.date) return "";
+
+        const time = task.time || "12:00";
+        const taskDate = new Date(`${task.date}T${time}`);
+        const now = new Date();
+        const diff = taskDate - now;
+        
+
+        if (diff <= 0) return "Po terminie"
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        if(days > 0) return `Do końca pozostało ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        if(days <= 0) return `Do końca pozostało ${hours}h ${minutes}m ${seconds}s`;
+        if(hours <= 0) return `Do końca pozostało ${minutes}m ${seconds}s`;
+        if(minutes <= 0) return `Do końca pozostało ${seconds}s`;
+    }
 
     return (
     <div className="addTaskCenter">
         <div id="error"
             style={{ color: msg.type === "error" ? "red" : "green" }}
           >{msg.text}
-          {loading && <div style={{ color: "white" }}>Ładowanie...</div>}
-            {!loading && tasks.length === 0 && <div style={{ color: "white" }}>Brak zadań</div>}</div>
+          {loading && <div style={{ color: "var(--color)" }}>Ładowanie...</div>}
+            {!loading && tasks.length === 0 && <div style={{ color: "var(--color)" }}>Brak zadań</div>}</div>
         <div className="addTask">
             <div className="box4">
             <div className="box1">
@@ -148,7 +181,13 @@ function Tasks({ auth }) {
         </div>
         <div className="taskLi">{tasks.map((t, i) => (
             <div className="task" key={i}>
-                {t.name} - {t.date} <button id="deleteTaskButton" onClick={() => deleteTask(i)}>Usuń</button>
+                <div>
+                    {t.name} - {t.date} 
+                    <button id="deleteTaskButton" onClick={() => deleteTask(i)}>Usuń</button>
+                </div>
+                <div style={{paddingTop: 10, color: "red"}}>
+                    {getTimeLeft(t)}
+                </div>
             </div>
         ))}</div>
     </div>

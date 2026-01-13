@@ -108,6 +108,11 @@ body {
     flex-direction: column;
 }
 
+.columnbetter {
+    display: flex;
+    flex-direction: column;
+}
+
 .column {
     display: flex;
     flex-direction: column;
@@ -126,7 +131,7 @@ body {
 [data-theme="light"] {
     --bg: #DEDED1;
     --primary: #B6AE9F;
-    --color: white;
+    --color: black;
     --button: #C5C7BC;
     --hover: #c4c4c4;
 }
@@ -489,9 +494,23 @@ body {
     color: var(--color);
     border-radius: 100px;
     word-break: break-all;
+    flex-direction: column;
 }
 
 #deleteTaskButton {
     background-color: var(--button);
     margin-left: 10px;
+}
+
+.welcome {
+    margin-left: 15px;
+    padding: 15px;
+    color: var(--color);
+}
+
+.dashboardTaskBox {
+    margin-left: 30px;
+    background-color: var(--primary);
+    width: 400px;
+    height: 700px;
 }
