@@ -20,7 +20,7 @@ function App() {
     <>
     <div className='auth-navbar row'>
       {login && (<><div className='login-div' onClick={() => setPage("tasks")}>Zadania</div></>)}
-      <div className='login-div' onClick={() => setPage("login")}>Logowanie</div>
+      <div className={`login-div`} onClick={() => setPage("login")}>Logowanie</div>
       <div className='login-div' onClick={() => setPage("register")}>Rejestracja</div>
       <div className='custom-select'>
       <select className='login-div' value="" onChange={(e) => {
