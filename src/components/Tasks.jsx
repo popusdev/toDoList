@@ -181,12 +181,18 @@ function Tasks({ auth }) {
         </div>
         <div className="taskLi">{tasks.map((t, i) => (
             <div className="task" key={i}>
-                <div>
-                    {t.name} - {t.date} 
-                    <button id="deleteTaskButton" onClick={() => deleteTask(i)}>Usuń</button>
-                </div>
-                <div style={{paddingTop: 10, color: "red"}}>
-                    {getTimeLeft(t)}
+                <div className="row">
+                    <div className="taskInfo">
+                        <div>
+                            {t.name} - {t.date}
+                        </div>
+                        <div style={{paddingTop: 10, color: "red"}}>
+                            {getTimeLeft(t)}
+                        </div>
+                    </div>
+                    <div className="deleteTaskButtonBox">
+                        <button id="deleteTaskButton" onClick={() => deleteTask(i)}>Usuń</button>
+                    </div>
                 </div>
             </div>
         ))}</div>
