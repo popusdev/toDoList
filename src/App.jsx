@@ -5,7 +5,6 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Settings from './components/Settings'
 import Tasks from './components/Tasks'
-import Dashboard from './components/Dashboard'
 
 function App() {
   const [ page, setPage ] = useState("login")
@@ -33,7 +32,6 @@ function App() {
   return (
     <>
     <div className='auth-navbar row'>
-      {login && (<><div className='login-div' onClick={() => setPage("dashboard")}>Dashboard</div></>)}
       {login && (<><div className='login-div' onClick={() => setPage("tasks")}>Zadania</div></>)}
       {!login && (<><div className='login-div' onClick={() => setPage("login")}>Logowanie</div></>)}
       {!login && (<><div className='login-div' onClick={() => setPage("register")}>Rejestracja</div></>)}
@@ -56,7 +54,6 @@ function App() {
       </div>
     </div>
 
-    {page === "dashboard" && <Dashboard login={login}/>}
     {page === "tasks" && <Tasks auth={auth}/>}
     {page === "register" && <Register/>}
     {page === "login" && <Login onLoginSuccess={(login, password) => {
